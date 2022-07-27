@@ -1,4 +1,16 @@
 menu:
+  - entry: "BSD Distribution"
+    build:
+      var_files:
+        - "vsphere.pkrvars.hcl"
+        - "build.pkrvars.hcl"
+        - "ansible.pkrvars.hcl"
+        - "proxy.pkrvars.hcl"
+        - "common.pkrvars.hcl"
+    submenu:
+      - entry: "FreeBSD 13"
+        build:
+          path: "builds/bsd/freebsd/13/"
   - entry: "Linux Distribution"
     build:
       var_files:
