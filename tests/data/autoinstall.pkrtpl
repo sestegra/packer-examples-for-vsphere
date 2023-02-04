@@ -1,0 +1,74 @@
+  # Reference: https://curtin.readthedocs.io/en/latest/topics/storage.html
+  # Commands:
+  # - disk:         https://curtin.readthedocs.io/en/latest/topics/storage.html#disk-command
+  # - partition:    https://curtin.readthedocs.io/en/latest/topics/storage.html#partition-command
+  # - format:       https://curtin.readthedocs.io/en/latest/topics/storage.html#format-command
+  # - mount:        https://curtin.readthedocs.io/en/latest/topics/storage.html#mount-command
+  # - lvm_volgroup: https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-volgroup-command
+  # - lvm_partition https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-partition-command
+  storage:
+    config:
+      - id: disk-sda
+        type: disk
+        path: /dev/sda
+        ptable: gpt
+%{ for index, partition in partitions ~}
+      - id: partition-${partition.name}
+        type: partition
+        device: disk-sda
+%{ if partition.size != -1 ~}
+        size: ${partition.size}M
+%{ else ~}
+        size: ${partition.size}
+%{ endif ~}
+%{ if lookup(partition, "format", {}) != {} ~}
+%{ if partition.format.fstype != "" ~}
+      - id: format-${partition.name}
+        type: format
+        volume: partition-${partition.name}
+        label: ${partition.format.label}
+        fstype: ${partition.format.fstype}
+%{ endif ~}
+%{ endif ~}
+%{ if lookup(partition, "mount", {}) != {} ~}
+%{ if partition.mount.path != "" ~}
+      - id: mount-${partition.name}
+        type: mount
+        path: ${partition.mount.path}
+        device: format-${partition.name}
+%{ if lookup(partition.mount, "options", "") != "" ~}
+        options: ${partition.mount.options}
+%{ endif ~}
+%{ endif ~}
+%{ endif ~}
+%{ endfor ~}
+%{ for index, volume_group in lvm ~}
+      - id: lvm_volgroup-${volume_group.name}
+        type: lvm_volgroup
+        name: ${volume_group.name}
+        devices:
+%{ for index, partition in partitions ~}
+%{ if lookup(partition, "volume_group", "") == volume_group.name ~}
+          - partition-${partition.name}
+%{ endif ~}
+%{ endfor ~}
+%{ for index, partition in volume_group.partitions ~}
+      - id: lvm_partition-${partition.name}
+        type: lvm_partition
+        name: ${partition.name}
+        size: ${partition.size}M
+        volgroup: lvm_volgroup-${volume_group.name}
+      - id: format-${partition.name}
+        type: format
+        volume: partition-${partition.name}
+        label: ${partition.format.label}
+        fstype: ${partition.format.fstype}
+      - id: mount-${partition.name}
+        type: mount
+        path: ${partition.mount.path}
+        device: format-${partition.name}
+%{ if lookup(partition.mount, "options", "") != "" ~}
+        options: ${partition.mount.options}
+%{ endif ~}
+%{ endfor ~}
+%{ endfor ~}
