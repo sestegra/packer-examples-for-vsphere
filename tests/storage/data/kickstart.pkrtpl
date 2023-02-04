@@ -62,4 +62,3 @@ logvol ${partition.mount.path} --name=${partition.name} --vgname=${volume_group.
 
 %{ endfor ~}
 %{ endfor ~}
-

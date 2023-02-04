@@ -1,11 +1,3 @@
-  # Reference: https://curtin.readthedocs.io/en/latest/topics/storage.html
-  # Commands:
-  # - disk:         https://curtin.readthedocs.io/en/latest/topics/storage.html#disk-command
-  # - partition:    https://curtin.readthedocs.io/en/latest/topics/storage.html#partition-command
-  # - format:       https://curtin.readthedocs.io/en/latest/topics/storage.html#format-command
-  # - mount:        https://curtin.readthedocs.io/en/latest/topics/storage.html#mount-command
-  # - lvm_volgroup: https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-volgroup-command
-  # - lvm_partition https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-partition-command
   storage:
     config:
       - id: disk-sda

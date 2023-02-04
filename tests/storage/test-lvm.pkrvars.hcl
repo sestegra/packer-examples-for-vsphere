@@ -28,7 +28,7 @@ vm_disk_partitions = [
   },
   {
     name = "sysvg"
-    size = -1, # -1 for Ubuntu - What for Enterprise Linux?
+    size = -1,
     format = {
       label  = "",
       fstype = "",

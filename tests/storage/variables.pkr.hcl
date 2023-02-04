@@ -4,7 +4,7 @@ variable "vm_disk_size" {
 }
 
 variable "vm_disk_partitions" {
-  type        = list(object({
+  type = list(object({
     name = string
     size = number
     format = object({
@@ -21,7 +21,7 @@ variable "vm_disk_partitions" {
 }
 
 variable "vm_disk_lvm" {
-  type        = list(object({
+  type = list(object({
     name    = string
     partitions = list(object({
       name = string
@@ -38,4 +38,9 @@ variable "vm_disk_lvm" {
   }))
   description = "The LVM configuration for the virtual disk."
   default     = []
+}
+
+variable "output_folder" {
+  type        = string
+  description = "The output folder for the generated files."
 }
