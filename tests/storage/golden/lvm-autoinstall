@@ -36,16 +36,16 @@
         type: partition
         device: disk
         size: -1
-      - id: lvm_volgroup-sysvg
+      - id: volgroup-sysvg
         type: lvm_volgroup
         name: sysvg
         devices:
           - partition-sysvg
-      - id: lvm_partition-lv_root
+      - id: partition-lv_root
         type: lvm_partition
         name: lv_root
         size: 12288M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_root
         type: format
         volume: partition-lv_root
@@ -55,11 +55,11 @@
         type: mount
         path: /
         device: format-lv_root
-      - id: lvm_partition-lv_home
+      - id: partition-lv_home
         type: lvm_partition
         name: lv_home
         size: 4096M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_home
         type: format
         volume: partition-lv_home
@@ -70,11 +70,11 @@
         path: /home
         device: format-lv_home
         options: nodev,nosuid
-      - id: lvm_partition-lv_opt
+      - id: partition-lv_opt
         type: lvm_partition
         name: lv_opt
         size: 2048M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_opt
         type: format
         volume: partition-lv_opt
@@ -85,11 +85,11 @@
         path: /opt
         device: format-lv_opt
         options: nodev
-      - id: lvm_partition-lv_tmp
+      - id: partition-lv_tmp
         type: lvm_partition
         name: lv_tmp
         size: 4096M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_tmp
         type: format
         volume: partition-lv_tmp
@@ -100,11 +100,11 @@
         path: /tmp
         device: format-lv_tmp
         options: nodev,noexec,nosuid
-      - id: lvm_partition-lv_var
+      - id: partition-lv_var
         type: lvm_partition
         name: lv_var
         size: 4096M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_var
         type: format
         volume: partition-lv_var
@@ -115,11 +115,11 @@
         path: /var
         device: format-lv_var
         options: nodev
-      - id: lvm_partition-lv_log
+      - id: partition-lv_log
         type: lvm_partition
         name: lv_log
         size: 4096M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_log
         type: format
         volume: partition-lv_log
@@ -130,11 +130,11 @@
         path: /var/log
         device: format-lv_log
         options: nodev,noexec,nosuid
-      - id: lvm_partition-lv_audit
+      - id: partition-lv_audit
         type: lvm_partition
         name: lv_audit
         size: 4096M
-        volgroup: lvm_volgroup-sysvg
+        volgroup: volgroup-sysvg
       - id: format-lv_audit
         type: format
         volume: partition-lv_audit

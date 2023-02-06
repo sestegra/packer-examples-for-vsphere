@@ -39,7 +39,7 @@
 %{ endif ~}
 %{ endfor ~}
 %{ for index, volume_group in lvm ~}
-      - id: lvm_volgroup-${volume_group.name}
+      - id: volgroup-${volume_group.name}
         type: lvm_volgroup
         name: ${volume_group.name}
         devices:
@@ -49,11 +49,11 @@
 %{ endif ~}
 %{ endfor ~}
 %{ for index, partition in volume_group.partitions ~}
-      - id: lvm_partition-${partition.name}
+      - id: partition-${partition.name}
         type: lvm_partition
         name: ${partition.name}
         size: ${partition.size}M
-        volgroup: lvm_volgroup-${volume_group.name}
+        volgroup: volgroup-${volume_group.name}
       - id: format-${partition.name}
         type: format
         volume: partition-${partition.name}
