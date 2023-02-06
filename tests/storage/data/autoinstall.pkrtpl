@@ -13,6 +13,10 @@
 %{ else ~}
         size: ${partition.size}
 %{ endif ~}
+%{ if index == 0 ~}
+        flag: boot
+        grub_device: true
+%{ endif ~}
 %{ if lookup(partition, "format", {}) != {} ~}
 %{ if partition.format.fstype != "" ~}
       - id: format-${partition.name}

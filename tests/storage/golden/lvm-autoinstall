@@ -8,6 +8,8 @@
         type: partition
         device: disk
         size: 1024M
+        flag: boot
+        grub_device: true
       - id: format-efi
         type: format
         volume: partition-efi
