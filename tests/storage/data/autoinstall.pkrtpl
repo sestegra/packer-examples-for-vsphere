@@ -1,13 +1,13 @@
   storage:
     config:
-      - id: disk-${device}
+      - id: disk
         type: disk
         path: /dev/${device}
         ptable: gpt
 %{ for index, partition in partitions ~}
       - id: partition-${partition.name}
         type: partition
-        device: disk-sda
+        device: disk
 %{ if partition.size != -1 ~}
         size: ${partition.size}M
 %{ else ~}

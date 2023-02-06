@@ -1,12 +1,12 @@
   storage:
     config:
-      - id: disk-sda
+      - id: disk
         type: disk
         path: /dev/sda
         ptable: gpt
       - id: partition-efi
         type: partition
-        device: disk-sda
+        device: disk
         size: 1024M
       - id: format-efi
         type: format
@@ -19,7 +19,7 @@
         device: format-efi
       - id: partition-boot
         type: partition
-        device: disk-sda
+        device: disk
         size: 1024M
       - id: format-boot
         type: format
@@ -32,7 +32,7 @@
         device: format-boot
       - id: partition-sysvg
         type: partition
-        device: disk-sda
+        device: disk
         size: -1
       - id: lvm_volgroup-sysvg
         type: lvm_volgroup
