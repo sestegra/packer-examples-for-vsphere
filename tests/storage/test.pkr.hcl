@@ -8,10 +8,12 @@ source "null" "test" {
 
 locals {
   autoinstall = templatefile("${abspath(path.root)}/data/autoinstall.pkrtpl", {
+    device     = var.vm_disk_device,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })
   kickstart = templatefile("${abspath(path.root)}/data/kickstart.pkrtpl", {
+    device     = var.vm_disk_device,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })

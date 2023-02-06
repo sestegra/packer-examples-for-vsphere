@@ -1,8 +1,8 @@
   storage:
     config:
-      - id: disk-sda
+      - id: disk-${device}
         type: disk
-        path: /dev/sda
+        path: /dev/${device}
         ptable: gpt
 %{ for index, partition in partitions ~}
       - id: partition-${partition.name}

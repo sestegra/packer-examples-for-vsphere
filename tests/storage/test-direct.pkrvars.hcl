@@ -1,4 +1,5 @@
 vm_disk_size = 40960
+vm_disk_device = "sda"
 vm_disk_partitions = [
   {
     name = "efi"
