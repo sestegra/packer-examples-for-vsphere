@@ -3,10 +3,10 @@
 ## Overview
 - Install `bats-core`
   - `brew install bats-core` on macOS
-- Run `bats test` in this directory
+- Run `bats test` on each directory
 
 ## Folder Structure
-- `data/`: Partitioning templates
+- `templates/`: Template files
 - `golden/`: Golden files
 - `test`: Test script
 
@@ -36,3 +36,6 @@
 - [mount](https://curtin.readthedocs.io/en/latest/topics/storage.html#mount-command)
 - [lvm_volgroup](https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-volgroup-command)
 - [lvm_partition](https://curtin.readthedocs.io/en/latest/topics/storage.html#lvm-partition-command)
+
+### Photon OS
+- [Kickstart Configuration](https://github.com/vmware/photon-os-installer/blob/master/photon_installer/ks_config.txt)
