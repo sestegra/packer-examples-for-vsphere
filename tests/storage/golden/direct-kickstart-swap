@@ -14,6 +14,7 @@ clearpart --all --initlabel
 ### Create primary system partitions.
 part /boot/efi --label=EFIFS --fstype vfat --size=1024
 part /boot --label=BOOTFS --fstype xfs --size=1024
+part swap --label=SWAPFS --fstype swap --size=1024
 part / --label=ROOTFS --fstype xfs --size=100 --grow
 
 ### Create a logical volume management (LVM) group.

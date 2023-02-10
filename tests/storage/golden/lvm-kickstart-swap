@@ -21,6 +21,7 @@ volgroup sysvg pv.sysvg
 
 ### Modify logical volume sizes for the virtual machine hardware.
 ### Create logical volumes.
+logvol swap --name=lv_swap --vgname=sysvg --label=SWAPFS --fstype swap --size=1024
 logvol / --name=lv_root --vgname=sysvg --label=ROOTFS --fstype xfs --size=12288
 logvol /home --name=lv_home --vgname=sysvg --label=HOMEFS --fstype xfs --fsoptions="nodev,nosuid" --size=4096
 logvol /opt --name=lv_opt --vgname=sysvg --label=OPTFS --fstype xfs --fsoptions="nodev" --size=2048

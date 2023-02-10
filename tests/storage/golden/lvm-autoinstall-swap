@@ -42,6 +42,20 @@
         name: sysvg
         devices:
           - partition-sysvg
+      - id: partition-lv_swap
+        type: lvm_partition
+        name: lv_swap
+        size: 1024M
+        volgroup: volgroup-sysvg
+      - id: format-lv_swap
+        type: format
+        volume: partition-lv_swap
+        label: SWAPFS
+        fstype: swap
+      - id: mount-lv_swap
+        type: mount
+        path: none
+        device: format-lv_swap
       - id: partition-lv_root
         type: lvm_partition
         name: lv_root

@@ -6,9 +6,9 @@
 - Run `bats test` in this directory
 
 ## Folder Structure
-- `data`: Partitioning templates
-- `golden`: golden files
-- `test`: test scripts
+- `data/`: Partitioning templates
+- `golden/`: Golden files
+- `test`: Test script
 
 ## Reference
 
