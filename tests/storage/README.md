@@ -16,8 +16,11 @@
 - [volgroup](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/system_design_guide/kickstart-commands-and-options-reference_system-design-guide#volgroup_kickstart-commands-for-handling-storage)
 - [logvol](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/8/html/system_design_guide/kickstart-commands-and-options-reference_system-design-guide#logvol_kickstart-commands-for-handling-storage)
 
-### Kickstart for Debian & Ubuntu 18.04
-TODO
+### Preseed for Debian & Ubuntu 18.04
+- [DebianInstaller - Preseed](https://wiki.debian.org/DebianInstaller/Preseed)
+- [DebianInstaller - Preseed Partman](https://d-i.debian.org/manual/en.amd64/apbs04.html#preseed-partman)
+- [DebianInstaller - Partman Source Code](https://salsa.debian.org/installer-team?filter=Partman)
+- [DebianInstaller - Partman Auto Documentation](https://salsa.debian.org/installer-team/debian-installer/-/blob/master/doc/devel/partman-auto-recipe.txt)
 
 ### Autoinstall for Ubuntu > 20.04
 - [Automated Server installer config file reference](https://ubuntu.com/server/docs/install/autoinstall-reference)

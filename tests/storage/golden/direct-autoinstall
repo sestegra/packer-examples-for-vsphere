@@ -23,6 +23,7 @@
         type: partition
         device: disk
         size: 1024M
+        flag: bios_grub
       - id: format-boot
         type: format
         volume: partition-boot

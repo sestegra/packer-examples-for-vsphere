@@ -2,10 +2,6 @@ source "null" "test" {
   communicator = "none"
 }
 
-// source "null" "test" {
-//   communicator = "none"
-// }
-
 locals {
   autoinstall = templatefile("${abspath(path.root)}/data/autoinstall.pkrtpl", {
     device     = var.vm_disk_device,
@@ -13,6 +9,11 @@ locals {
     lvm        = var.vm_disk_lvm,
   })
   kickstart = templatefile("${abspath(path.root)}/data/kickstart.pkrtpl", {
+    device     = var.vm_disk_device,
+    partitions = var.vm_disk_partitions,
+    lvm        = var.vm_disk_lvm,
+  })
+  preseed = templatefile("${abspath(path.root)}/data/preseed.pkrtpl", {
     device     = var.vm_disk_device,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
@@ -35,6 +36,16 @@ build {
   provisioner "shell-local" {
     inline = [
       "echo '${local.kickstart}' > ${var.output_folder}/kickstart",
+    ]
+  }
+}
+
+build {
+  name = "preseed"
+  sources = ["source.null.test"]
+  provisioner "shell-local" {
+    inline = [
+      "echo '${local.preseed}' > ${var.output_folder}/preseed",
     ]
   }
 }

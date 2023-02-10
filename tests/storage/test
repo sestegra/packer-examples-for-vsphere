@@ -6,6 +6,7 @@ setup() {
   packer init -upgrade "$DIR"
 }
 
+## Test LVM layout
 @test "storage with Autoinstall using LVM layout" {
   mkdir -p "$DIR/output/lvm"
   packer build -var-file="$DIR/test-lvm.pkrvars.hcl" -var "output_folder=$DIR/output/lvm" -only "autoinstall.*" "$DIR"
@@ -20,6 +21,14 @@ setup() {
   [ "$status" -eq 0 ]
 }
 
+@test "storage with Preseed using LVM layout" {
+  mkdir -p "$DIR/output/direct"
+  packer build -var-file="$DIR/test-lvm.pkrvars.hcl" -var "output_folder=$DIR/output/lvm" -only "preseed.*" "$DIR"
+  run diff -u "$DIR/output/lvm/preseed" "$DIR/golden/lvm-preseed"
+  [ "$status" -eq 0 ]
+}
+
+## Test direct layout
 @test "storage with Autoinstall using direct layout" {
   mkdir -p "$DIR/output/direct"
   packer build -var-file="$DIR/test-direct.pkrvars.hcl" -var "output_folder=$DIR/output/direct" -only "autoinstall.*" "$DIR"
@@ -31,5 +40,12 @@ setup() {
   mkdir -p "$DIR/output/direct"
   packer build -var-file="$DIR/test-direct.pkrvars.hcl" -var "output_folder=$DIR/output/direct" -only "kickstart.*" "$DIR"
   run diff -u "$DIR/output/direct/kickstart" "$DIR/golden/direct-kickstart"
+  [ "$status" -eq 0 ]
+}
+
+@test "storage with Preseed using direct layout" {
+  mkdir -p "$DIR/output/direct"
+  packer build -var-file="$DIR/test-direct.pkrvars.hcl" -var "output_folder=$DIR/output/direct" -only "preseed.*" "$DIR"
+  run diff -u "$DIR/output/direct/preseed" "$DIR/golden/direct-preseed"
   [ "$status" -eq 0 ]
 }
