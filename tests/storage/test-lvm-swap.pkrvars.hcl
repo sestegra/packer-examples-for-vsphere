@@ -1,5 +1,5 @@
 vm_disk_device = "sda"
-vm_disk_use_swap = false
+vm_disk_use_swap = true
 vm_disk_partitions = [
   {
     name = "efi"
@@ -45,6 +45,18 @@ vm_disk_lvm = [
   {
     name: "sysvg",
     partitions: [
+      {
+        name = "lv_swap",
+        size = 1024,
+        format = {
+          label  = "SWAPFS",
+          fstype = "swap",
+        },
+        mount = {
+          path    = "",
+          options = "",
+        },
+      },
       {
         name = "lv_root",
         size = 12288,

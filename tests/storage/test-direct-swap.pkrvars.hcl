@@ -1,5 +1,5 @@
 vm_disk_device = "sda"
-vm_disk_use_swap = false
+vm_disk_use_swap = true
 vm_disk_partitions = [
   {
     name = "efi"
@@ -23,6 +23,19 @@ vm_disk_partitions = [
     },
     mount = {
       path    = "/boot",
+      options = "",
+    },
+    volume_group = "",
+  },
+  {
+    name = "swap",
+    size = 1024,
+    format = {
+      label  = "SWAPFS",
+      fstype = "swap",
+    },
+    mount = {
+      path    = "",
       options = "",
     },
     volume_group = "",

@@ -1,11 +1,11 @@
-variable "vm_disk_size" {
-  type        = number
-  description = "The size for the virtual disk in MB. (e.g. '40960')"
-}
-
 variable "vm_disk_device" {
   type        = string
   description = "The device for the virtual disk. (e.g. 'sda')"
+}
+
+variable "vm_disk_use_swap" {
+  type        = bool
+  description = "Whether to use a swap partition."
 }
 
 variable "vm_disk_partitions" {

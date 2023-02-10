@@ -3,18 +3,19 @@ source "null" "test" {
 }
 
 locals {
-  autoinstall = templatefile("${abspath(path.root)}/data/autoinstall.pkrtpl", {
+  autoinstall = templatefile("${abspath(path.root)}/templates/autoinstall.pkrtpl", {
     device     = var.vm_disk_device,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })
-  kickstart = templatefile("${abspath(path.root)}/data/kickstart.pkrtpl", {
+  kickstart = templatefile("${abspath(path.root)}/templates/kickstart.pkrtpl", {
     device     = var.vm_disk_device,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })
-  preseed = templatefile("${abspath(path.root)}/data/preseed.pkrtpl", {
+  preseed = templatefile("${abspath(path.root)}/templates/preseed.pkrtpl", {
     device     = var.vm_disk_device,
+    swap       = var.vm_disk_use_swap,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })

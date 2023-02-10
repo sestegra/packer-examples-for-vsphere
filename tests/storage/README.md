@@ -5,6 +5,11 @@
   - `brew install bats-core` on macOS
 - Run `bats test` in this directory
 
+## Folder Structure
+- `data`: Partitioning templates
+- `golden`: golden files
+- `test`: test scripts
+
 ## Reference
 
 ### Kickstart for Enterprise Linux 8
