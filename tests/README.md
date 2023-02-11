@@ -1,5 +1,8 @@
 # Custom Templates Tests
 
+This directory contains tests for custom templates.
+The tests are written in [Bats](https://bats-core.readthedocs.io/en/stable/).
+
 ## Overview
 - Install `bats-core`
   - `brew install bats-core` on macOS
@@ -28,7 +31,7 @@
 - [DebianInstaller - Partman Source Code](https://salsa.debian.org/installer-team?filter=Partman)
 - [DebianInstaller - Partman Auto Documentation](https://salsa.debian.org/installer-team/debian-installer/-/blob/master/doc/devel/partman-auto-recipe.txt)
 
-### Autoinstall for Ubuntu > 20.04
+### Autoinstall for Ubuntu >= 20.04
 - [Automated Server installer config file reference](https://ubuntu.com/server/docs/install/autoinstall-reference)
 - [Netplan Network](https://netplan.readthedocs.io/en/latest/netplan-yaml/)
 - [Curtin Storage](https://curtin.readthedocs.io/en/latest/topics/storage.html)
