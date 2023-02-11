@@ -24,6 +24,13 @@ locals {
     gateway = var.vm_ip_gateway,
     dns     = var.vm_dns_list,
   })
+  photon = templatefile("${abspath(path.root)}/templates/photon.pkrtpl", {
+    device  = var.vm_network_device,
+    ip      = var.vm_ip_address,
+    netmask = var.vm_ip_netmask,
+    gateway = var.vm_ip_gateway,
+    dns     = var.vm_dns_list,
+  })
 }
 
 build {
@@ -52,6 +59,16 @@ build {
   provisioner "shell-local" {
     inline = [
       "echo '${local.preseed}' > ${var.output_folder}/preseed",
+    ]
+  }
+}
+
+build {
+  name = "photon"
+  sources = ["source.null.test"]
+  provisioner "shell-local" {
+    inline = [
+      "echo '${local.photon}' > ${var.output_folder}/photon",
     ]
   }
 }

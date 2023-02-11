@@ -1,4 +1,4 @@
-# Custom Storage Tests
+# Custom Templates Tests
 
 ## Overview
 - Install `bats-core`
