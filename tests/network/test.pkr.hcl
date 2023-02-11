@@ -4,18 +4,21 @@ source "null" "test" {
 
 locals {
   autoinstall = templatefile("${abspath(path.root)}/templates/autoinstall.pkrtpl", {
+    device  = var.vm_network_device,
     ip      = var.vm_ip_address,
     netmask = var.vm_ip_netmask,
     gateway = var.vm_ip_gateway,
     dns     = var.vm_dns_list,
   })
   kickstart = templatefile("${abspath(path.root)}/templates/kickstart.pkrtpl", {
+    device  = var.vm_network_device,
     ip      = var.vm_ip_address,
     netmask = var.vm_ip_netmask,
     gateway = var.vm_ip_gateway,
     dns     = var.vm_dns_list,
   })
   preseed = templatefile("${abspath(path.root)}/templates/preseed.pkrtpl", {
+    device  = var.vm_network_device,
     ip      = var.vm_ip_address,
     netmask = var.vm_ip_netmask,
     gateway = var.vm_ip_gateway,

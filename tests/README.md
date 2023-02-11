@@ -23,12 +23,14 @@
 
 ### Preseed for Debian & Ubuntu 18.04
 - [DebianInstaller - Preseed](https://wiki.debian.org/DebianInstaller/Preseed)
-- [DebianInstaller - Preseed Partman](https://d-i.debian.org/manual/en.amd64/apbs04.html#preseed-partman)
+- [DebianInstaller - Preseed Network](https://www.debian.org/releases/stable/amd64/apbs04.en.html#preseed-network)
+- [DebianInstaller - Preseed Partman](https://www.debian.org/releases/stable/amd64/apbs04.en.html#preseed-partman)
 - [DebianInstaller - Partman Source Code](https://salsa.debian.org/installer-team?filter=Partman)
 - [DebianInstaller - Partman Auto Documentation](https://salsa.debian.org/installer-team/debian-installer/-/blob/master/doc/devel/partman-auto-recipe.txt)
 
 ### Autoinstall for Ubuntu > 20.04
 - [Automated Server installer config file reference](https://ubuntu.com/server/docs/install/autoinstall-reference)
+- [Netplan Network](https://netplan.readthedocs.io/en/latest/netplan-yaml/)
 - [Curtin Storage](https://curtin.readthedocs.io/en/latest/topics/storage.html)
 - [disk](https://curtin.readthedocs.io/en/latest/topics/storage.html#disk-command)
 - [partition](https://curtin.readthedocs.io/en/latest/topics/storage.html#partition-command)

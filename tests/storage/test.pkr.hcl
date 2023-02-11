@@ -5,11 +5,13 @@ source "null" "test" {
 locals {
   autoinstall = templatefile("${abspath(path.root)}/templates/autoinstall.pkrtpl", {
     device     = var.vm_disk_device,
+    swap       = var.vm_disk_use_swap,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })
   kickstart = templatefile("${abspath(path.root)}/templates/kickstart.pkrtpl", {
     device     = var.vm_disk_device,
+    swap       = var.vm_disk_use_swap,
     partitions = var.vm_disk_partitions,
     lvm        = var.vm_disk_lvm,
   })
